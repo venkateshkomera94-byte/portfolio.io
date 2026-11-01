@@ -318,14 +318,14 @@ footer{position:relative;z-index:1;text-align:center;color:var(--mute);font-size
 <div class="prog"></div>
 <header><div class="bar" id="bar">
  <a class="logo" href="#top"><i></i><span>Venkatesh Komera</span></a>
- <nav class="nav" id="nav"><div class="pill" id="pill"></div><a href="#top">Home</a><a href="#work">Work</a><a href="#process">Process</a><a href="#experience">Experience</a><a href="#about">About</a></nav>
+ <nav class="nav" id="nav"><div class="pill" id="pill"></div><a href="#top">Home</a><a href="#work">Work</a><a href="#process">Process</a><a href="#experience">Experience</a><a href="#about">About</a><a href="blog.html" class="ext">Blog</a></nav>
  <a class="btn" href="#contact">Hire me</a>
  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu" aria-hidden="true">
  <div class="dr-top"><b>Menu</b><button class="dr-x" id="drX" aria-label="Close menu">×</button></div>
- <nav class="dr-nav" id="drNav"><a href="#top" style="--i:0"><small>01</small>Home</a><a href="#work" style="--i:1"><small>02</small>Work</a><a href="#process" style="--i:2"><small>03</small>Process</a><a href="#experience" style="--i:3"><small>04</small>Experience</a><a href="#about" style="--i:4"><small>05</small>About</a><a href="#contact" style="--i:5"><small>06</small>Contact</a></nav>
+ <nav class="dr-nav" id="drNav"><a href="#top" style="--i:0"><small>01</small>Home</a><a href="#work" style="--i:1"><small>02</small>Work</a><a href="#process" style="--i:2"><small>03</small>Process</a><a href="#experience" style="--i:3"><small>04</small>Experience</a><a href="#about" style="--i:4"><small>05</small>About</a><a href="#contact" style="--i:5"><small>06</small>Contact</a><a href="blog.html" style="--i:6"><small>07</small>Blog</a></nav>
  <div class="dr-cta"><a class="btn" href="#" id="drCv">⬇ Download CV</a><a class="btn ghost" href="mailto:venkateshkomera94@gmail.com">Email me</a><div class="dr-in"><a href="https://www.behance.net/venkateshkomera" target="_blank" rel="noopener">Behance</a>·<a href="https://www.linkedin.com/in/venkatesh-komera/" target="_blank" rel="noopener">LinkedIn</a></div></div>
 </aside>
 
@@ -413,7 +413,7 @@ footer{position:relative;z-index:1;text-align:center;color:var(--mute);font-size
  <div class="cta"><a class="btn" href="mailto:venkateshkomera94@gmail.com">venkateshkomera94@gmail.com</a><a class="btn ghost" href="tel:+917396980505">+91 73969 80505</a><a class="btn ghost" href="https://www.linkedin.com/in/venkatesh-komera/" target="_blank" rel="noopener">LinkedIn</a><a class="btn ghost" href="https://www.behance.net/venkateshkomera" target="_blank" rel="noopener">Behance</a><a class="btn dl" href="#" download="Venkatesh_Komera_UIUX_Resume.pdf" style="background:#fff;border-color:#fff">⬇ Download CV</a></div>
 </div>
 </main>
-<footer>© 2026 Venkatesh Komera</footer>
+<footer>© 2026 Venkatesh Komera · <a href="blog.html">Blog</a></footer>
 
 <div class="bot" id="bot">
  <div class="bot-box" id="botBox" role="dialog" aria-label="Chat assistant" aria-hidden="true">
@@ -474,7 +474,7 @@ var stack=document.getElementById('stack'),fcs=stack.querySelectorAll('.fc');
 window.addEventListener('pointermove',function(e){var x=e.clientX/innerWidth,y=e.clientY/innerHeight;document.body.style.setProperty('--mx',x);document.body.style.setProperty('--my',y);
  fcs.forEach(function(f){var m=+f.dataset.m;f.style.transform='translate('+(x-.5)*m*2+'px,'+(y-.5)*m*2+'px) rotate('+(x-.5)*m/3+'deg)'})});
 /* scroll: progress, header, active link + sliding pill */
-var bar=document.getElementById('bar'),pill=document.getElementById('pill'),links=[].slice.call(document.querySelectorAll('#nav a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}),cur=-1;
+var bar=document.getElementById('bar'),pill=document.getElementById('pill'),links=[].slice.call(document.querySelectorAll('#nav a[href^="#"]')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}),cur=-1;
 function pl(i){var a=links[i];pill.style.width=a.offsetWidth+'px';pill.style.transform='translateX('+a.offsetLeft+'px)'}
 function sc(){var d=document.documentElement,p=scrollY/(d.scrollHeight-innerHeight)*100;document.documentElement.style.setProperty('--p',p);document.body.style.setProperty('--p',p);
  bar.classList.toggle('sc',scrollY>20);var k=0;secs.forEach(function(s,j){if(s.getBoundingClientRect().top<innerHeight*.4)k=j});
@@ -493,6 +493,7 @@ var KB=[
 ['tools',/tool|figma|adobe|xd|illustrator|miro|invision|software|ai tool|chatgpt/i,'Tools: <b>Figma, Adobe XD, Illustrator, InVision and Miro</b>. For research and ideation he also uses AI tools like ChatGPT, Figma AI and UXMagic.'],
 ['proj',/project|portfolio|case stud|sample|behance|sezzle|guardian|airbnb|dropship|saas|fitness|airpods/i,'You can see his projects in the <a href="#work">Selected projects</a> section, including Sezzle, GuardianAngel, Dropshipping &amp; logistics, Airbnb UX research and a B2B SaaS design. The full set is on <a href="'+BE+'" target="_blank" rel="noopener">Behance</a>.'],
 ['proc',/process|how do you work|approach|method|workflow/i,'His process has four steps: <b>understand users</b>, <b>craft the flow</b>, <b>design the interface</b>, then <b>test and refine</b>. See <a href="#process">How I work</a>.'],
+['blog',/blog|article|writing/i,'Venkatesh writes about UX and design. Read his articles on the <a href="blog.html">Blog page</a>.'],
 ['hire',/hire|available|availability|freelance|open to|opportunit|work with|collaborat|recruit|vacancy|join/i,'Yes, he is open to new UI/UX roles and projects. The fastest way is to email <a href="'+M+'">venkateshkomera94@gmail.com</a> or call <a href="'+T+'">+91 73969 80505</a>.'],
 ['contact',/contact|email|mail|phone|call|number|reach|linkedin|get in touch|message|whatsapp/i,'You can reach Venkatesh here:<ul><li>Email: <a href="'+M+'">venkateshkomera94@gmail.com</a></li><li>Phone: <a href="'+T+'">+91 73969 80505</a></li><li><a href="'+LI+'" target="_blank" rel="noopener">LinkedIn</a> · <a href="'+BE+'" target="_blank" rel="noopener">Behance</a></li></ul>'],
 ['cv',/resume|cv|download/i,'You can download his resume with the <b>Download CV</b> button. <a href="#" data-cv="1">Download it now</a>.'],
@@ -525,7 +526,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)})
 setTimeout(function(){if(!box.classList.contains('open')){tip.classList.add('show');setTimeout(function(){tip.classList.remove('show')},5000)}},4000);
 })();
 (function(){
-var b=document.getElementById('burger'),d=document.getElementById('drawer'),links=[].slice.call(document.querySelectorAll('#drNav a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+var b=document.getElementById('burger'),d=document.getElementById('drawer'),links=[].slice.call(document.querySelectorAll('#drNav a[href^="#"]')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
 function set(o){document.body.classList.toggle('menu',o);b.setAttribute('aria-expanded',o);d.setAttribute('aria-hidden',!o);if(o)setTimeout(function(){document.getElementById('drX').focus()},350)}
 b.onclick=function(){set(!document.body.classList.contains('menu'))};
 document.getElementById('drX').onclick=function(){set(false)};document.getElementById('scrim').onclick=function(){set(false)};
